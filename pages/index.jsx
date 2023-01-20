@@ -1,5 +1,13 @@
 import styled from "styled-components";
 import { Routes } from "@config/routes";
+import { color, textFont, displayFont } from "@styles/theme";
+
+const navItems = [
+  { text: "Home", href: Routes.home },
+  { text: "Products", href: Routes.products },
+  { text: "Documentaion", href: Routes.documentation },
+  { text: "Pricing", href: Routes.pricing },
+];
 
 const Header = styled.header`
   width: 100%;
@@ -10,6 +18,22 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   background: white;
+`;
+
+const NavigationContainer = styled.ul`
+  list-style: none;
+  display: flex;
+  margin-right: 4rem;
+`;
+
+const NavList = styled.li`
+  padding-left: 2.5rem;
+`;
+
+const NavLink = styled.a`
+  text-decoration: none;
+  color: ${color("gray", 500)};
+  ${textFont("md", "medium")};
 `;
 
 const ContactButton = styled.button`
@@ -34,6 +58,13 @@ const IssuesPage = () => {
       <Header>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/icons/logo-large.svg" alt="Prolog logo" />
+        <NavigationContainer>
+          {navItems.map((navItem, index) => (
+            <NavList key={index}>
+              <NavLink href={navItem.href}>{navItem.text}</NavLink>
+            </NavList>
+          ))}
+        </NavigationContainer>
         <a href={Routes.projects}>Dashboard</a>
       </Header>
       <ContactButton
