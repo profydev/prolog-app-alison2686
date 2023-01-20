@@ -52,6 +52,20 @@ const ContactButton = styled.button`
   }
 `;
 
+const DashboardButton = styled.button`
+  padding: 1rem;
+  background: #7f56d9;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border: 1px solid #7f56d9;
+  cursor: pointer;
+  color: #fff;
+
+  &:hover {
+    background: #6941c6;
+  }
+`;
+
 const IssuesPage = () => {
   return (
     <div>
@@ -65,7 +79,9 @@ const IssuesPage = () => {
             </NavList>
           ))}
         </NavigationContainer>
-        <a href={Routes.projects}>Dashboard</a>
+        <a href={Routes.projects}>
+          <DashboardButton>Open Dashboard</DashboardButton>
+        </a>
       </Header>
       <ContactButton
         onClick={() =>
